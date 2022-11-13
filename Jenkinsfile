@@ -1,16 +1,20 @@
 pipeline {
-  agent {
-      label 'maven' 
-  }
-	stages{
-	  stage ('Build'){
-	    steps{
-		sh '''
-			mvn clean install
-			'''
-		}
-	  }
-	         stage('Unit Testing junit')
+
+    // run on jenkins nodes tha has slave label .....
+
+    agent { label 'maven' }
+
+    
+    stages {
+        
+        stage('Build') {
+            steps {
+                // Run the maven build
+                sh 'mvn clean install'
+                
+            }
+        }
+        stage('Unit Testing junit')
         {
             steps
             {
@@ -81,10 +85,4 @@ pipeline {
             }
         }
     }
-      stage('Producton'){
-	    steps{
-		  echo "This is Prd"
-		  } 
-		  }
-	}
-}
+    }
