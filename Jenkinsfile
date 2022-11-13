@@ -43,7 +43,7 @@ pipeline {
                     // some block
                     sh """
                     ${sonarscanner}/bin/sonar-scanner
-                                  
+                    -Dsonar.projectKey=develop                                  
                     """
                 }
              }
