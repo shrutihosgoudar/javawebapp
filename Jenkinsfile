@@ -11,9 +11,11 @@ pipeline {
 		}
 	  }
 	  stage ('Unit Test'){
-	    steps{
-		  jacoco()
-		}
+	   steps
+            {
+                       junit 'target/surefire-reports/*.xml'
+
+            }
 	  }
 	  stage('testing'){
 	    steps{
