@@ -80,7 +80,7 @@ pipeline {
         stage('Upload to Nexus') {
             steps {
                 // Deploy to Nexus
-               nexusPublisher nexusInstanceId: 'nexus', nexusRepositoryId: 'EED_Engg-Excellence-Devops-POC_maven_releases', packages: []
+               nexusArtifactUploader credentialsId: 'nexus', groupId: 'com.maven.bt', nexusUrl: 'http://172.31.7.54:8081/', nexusVersion: 'nexus3', protocol: 'http', repository: 'http://172.31.7.54:8081/repository/maven-releases/', version: '9.1.14'
             }
         }
     }
